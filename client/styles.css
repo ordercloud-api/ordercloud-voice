@@ -1,0 +1,31 @@
+.keymap-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 20%;
+    top: 0;
+}
+.keymap-panel {
+    padding: 32px;
+    border: 1px solid #ddd;
+}
+.keymap-header {
+    text-align: center;
+}
+
+.keymap-header small {
+    display: block;
+}
+
+.keymap-form {
+    max-width: 300px;
+}
+
+.help-link {
+    display: block;
+    text-align: center;
+    margin-top: 20px;
+}

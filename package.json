@@ -1,0 +1,19 @@
+{
+  "name": "voice-assistant",
+  "description": "A simple voice assistant project that integrates with Four51 OrderCloud API",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ordercloud-api/voice-assistant.git"
+  },
+  "keywords": [],
+  "author": "Four51",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ordercloud-api/voice-assistant/issues"
+  },
+  "homepage": "https://github.com/ordercloud-api/voice-assistant#readme"
+}
