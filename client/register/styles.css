@@ -1,4 +1,4 @@
-.keymap-page {
+.register-page {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -8,19 +8,19 @@
     bottom: 20%;
     top: 0;
 }
-.keymap-panel {
+.register-panel {
     padding: 32px;
     border: 1px solid #ddd;
 }
-.keymap-header {
+.register-header {
     text-align: center;
 }
 
-.keymap-header small {
+.register-header small {
     display: block;
 }
 
-.keymap-form {
+.register-form {
     max-width: 300px;
 }
 
