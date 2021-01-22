@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/ordercloud-api/voice-assistant/issues"
   },
-  "homepage": "https://github.com/ordercloud-api/voice-assistant#readme"
+  "homepage": "https://github.com/ordercloud-api/voice-assistant#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
 }
