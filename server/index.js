@@ -3,8 +3,6 @@ const app = express();
 const port = process.env.PORT || 4451;
 const path = require("path");
 const projectRoot = path.join(__dirname, "../");
-require('axios');
-const oc = require("ordercloud-javascript-sdk");
 
 
 // client
@@ -49,6 +47,7 @@ app.get("/token", (req, res) => {
 
 // server
 app.use("/api/example", require("./routes/example"));
+app.use('/api/ordercloud', require('./routes/ordercloud'))
 
 // catch-all
 app.get("/*", (req, res) => {
