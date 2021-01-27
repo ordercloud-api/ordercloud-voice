@@ -13,8 +13,7 @@ app.use(express.static("client"));
 // -- Web Authorization URI --
 // The URI where customers will be redirected in the companion app to enter login credentials.
 // https://developer.amazon.com/en-US/docs/alexa/account-linking/configure-implicit-grant.html#overview-of-the-implicit-grant-flow
-app.get("/login", (req, res) => {
-  // console.log('LOGIN REQUEST', JSON.stringify(req, null, 2));
+app.get("/authorize", (req, res) => {
   const { 
     state, 
     client_id, 
