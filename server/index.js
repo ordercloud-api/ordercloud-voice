@@ -4,10 +4,8 @@ const port = process.env.PORT || 4451;
 const path = require("path");
 const projectRoot = path.join(__dirname, "../");
 
-
 // client
 app.use(express.static("client"));
-
 
 // TODO: Bring this page back if we have time, right now it is not necessary as we will use the same client ID for the entire skill
 // // Hidden route for developers or application owners to register their ClientID with a keyword
@@ -16,7 +14,6 @@ app.use(express.static("client"));
 // });
 
 // server
-app.use("/api/example", require("./routes/example"));
 app.use('/api/ordercloud', require('./routes/ordercloud'))
 app.use('/api/alexa', require('./routes/alexa'))
 

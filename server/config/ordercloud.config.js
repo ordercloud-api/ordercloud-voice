@@ -5,16 +5,8 @@ OrderCloudSDK.Configuration.Set({
   baseApiUrl: "https://stagingapi.ordercloud.io",
 });
 
-const clientID = process.env.CLIENT_ID;
-const clientSecret = process.env.CLIENT_SECRET;
-if (!clientID || !clientSecret) {
-  throw new Error("Missing ordercloud credentials CLIENT_ID and CLIENT_SECRET");
-}
-
 module.exports = {
-  sdk: OrderCloudSDK,
-  clientID,
-  clientSecret,
+  OrderCloudSDK: OrderCloudSDK,
   scope: [
     "AddressAdmin",
     "AddressReader",
