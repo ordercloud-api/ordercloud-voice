@@ -1,6 +1,7 @@
 const form = document.getElementById("form");
 const username = document.getElementById("username");
-const email = document.getElementById("keyword");
+// TODO: maybe bring this back if we have time
+// const email = document.getElementById("keyword");
 const password = document.getElementById("password");
 
 function showError(input, message) {
@@ -32,13 +33,13 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-function submitRequest(username, password, keyword) {}
+function submitRequest(username, password) {}
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
 
-  if (!checkRequired([username, keyword, password])) {
-    checkKeyword(keyword);
-    submitRequest(username, password, keyword);
+  if (!checkRequired([username, password])) {
+    // checkKeyword(keyword);
+    submitRequest(username, password);
   }
 });
