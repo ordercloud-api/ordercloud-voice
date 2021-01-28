@@ -6,13 +6,12 @@ export default {
     return getRequestType(handlerInput.requestEnvelope) === 'LaunchRequest'
   },
   handle(handlerInput: HandlerInput): Response {
-    const speakOutput = 'Hello, testing testing! Goodbye'
+    const speakOutput =
+      'Welcome, you can say "Earnings for today" or Help. Which would you like to try?'
 
-    return (
-      handlerInput.responseBuilder
-        .speak(speakOutput)
-        // .reprompt(speakOutput)
-        .getResponse()
-    )
+    return handlerInput.responseBuilder
+      .speak(speakOutput)
+      .reprompt(speakOutput)
+      .getResponse()
   },
 }

@@ -17,12 +17,7 @@ module.exports = {
     rules: {
       // specify lint rules to overwrite rules inherited from the extended configs
       "@typescript-eslint/no-misused-promises": "off",
-      "@typescript-eslint/unbound-method": [
-        "error",
-        {
-          "ignoreStatic": true
-        }
-      ]
+      "@typescript-eslint/unbound-method": "off"
     },
   }
   
