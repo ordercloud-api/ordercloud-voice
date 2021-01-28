@@ -8,6 +8,9 @@ const urlSearchParams = new URLSearchParams(window.location.search);
 
 const clientID = urlSearchParams.get('client_id');
 const requestUri = urlSearchParams.get('redirect_uri');
+const state = urlSearchParams.get('state');
+const scope = urlSearchParams.get('scope');
+const responseType = urlSearchParams.get('redirect_uri');
 
 if (!clientID || !requestUri) {
   window.alert('This login screen is not configured correctly!');
@@ -46,7 +49,10 @@ function submitRequest(username, password) {
   const data = {
     username,
     password,
+    state,
     clientID,
+    responseType,
+    scope,
     requestUri,
   };
 
