@@ -52,9 +52,7 @@ export default {
     const orders = await listAll(
       Orders.List,
       'Incoming',
-      {
-        buyerID: '0005',
-      },
+      null,
       { accessToken }
     )
 
