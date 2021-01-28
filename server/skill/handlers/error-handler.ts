@@ -1,22 +1,24 @@
-import { HandlerInput } from 'ask-sdk-core';
+import { HandlerInput } from 'ask-sdk-core'
+import { Response } from 'ask-sdk-model'
+
 /**
  * Generic error handling to capture any syntax or routing errors. If you receive an error
  * stating the request handler chain is not found, you have not implemented a handler for
  * the intent being invoked or included it in the skill builder below
  * */
-export default  {
-  canHandle() {
-    return true;
+export default {
+  canHandle(): boolean {
+    return true
   },
-  handle(handlerInput: HandlerInput, error: any) {
+  handle(handlerInput: HandlerInput, error: unknown): Response {
     const speakOutput =
-      "Sorry, I had trouble doing what you asked. Please try again.";
+      'Sorry, I had trouble doing what you asked. Please try again.'
     console.log(error)
-    console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
+    console.log(`~~~~ Error handled: ${JSON.stringify(error)}`)
 
     return handlerInput.responseBuilder
       .speak(speakOutput)
       .reprompt(speakOutput)
-      .getResponse();
+      .getResponse()
   },
-};
+}
