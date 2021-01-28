@@ -1,13 +1,13 @@
-const Alexa = require('ask-sdk-core')
+import Alexa, { HandlerInput } from 'ask-sdk-core';
 
-module.exports = {
-  canHandle(handlerInput) {
+export default {
+  canHandle(handlerInput: HandlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
       Alexa.getIntentName(handlerInput.requestEnvelope) === "HelloWorldIntent"
     );
   },
-  handle(handlerInput) {
+  handle(handlerInput: HandlerInput) {
     const speakOutput = "Hello World!";
 
     return handlerInput.responseBuilder

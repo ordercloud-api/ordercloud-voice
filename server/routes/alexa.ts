@@ -1,5 +1,7 @@
-const router = require("express").Router();
+import express from 'express';
+const router = express.Router();
 const skill = require('../skill');
+const projectRoot = `${__dirname}/../../`
 
 // -- Web Authorization URI --
 // The URI where customers will be redirected in the companion app to enter login credentials.

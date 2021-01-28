@@ -1,12 +1,11 @@
-require("axios");
-const OrderCloudSDK = require("ordercloud-javascript-sdk");
+import('axios');
+import { Configuration } from 'ordercloud-javascript-sdk';
 
-OrderCloudSDK.Configuration.Set({
+Configuration.Set({
   baseApiUrl: "https://stagingapi.ordercloud.io",
 });
 
-module.exports = {
-  OrderCloudSDK: OrderCloudSDK,
+export default {
   scope: [
     "AddressAdmin",
     "AddressReader",

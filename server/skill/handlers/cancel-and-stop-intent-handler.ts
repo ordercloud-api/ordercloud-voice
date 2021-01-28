@@ -1,7 +1,7 @@
-const Alexa = require('ask-sdk-core')
+import Alexa, { HandlerInput } from 'ask-sdk-core';
 
-module.exports = {
-  canHandle(handlerInput) {
+export default {
+  canHandle(handlerInput: HandlerInput) {
     return (
       Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
       (Alexa.getIntentName(handlerInput.requestEnvelope) ===
@@ -10,7 +10,7 @@ module.exports = {
           "AMAZON.StopIntent")
     );
   },
-  handle(handlerInput) {
+  handle(handlerInput: HandlerInput) {
     const speakOutput = "Goodbye!";
 
     return handlerInput.responseBuilder.speak(speakOutput).getResponse();

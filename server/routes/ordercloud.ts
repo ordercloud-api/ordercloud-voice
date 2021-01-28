@@ -1,4 +1,5 @@
-const router = require("express").Router();
+import express from 'express';
+const router = express.Router();
 const { OrderCloudSDK, scope } = require("../config/ordercloud.config");
 
 router.route("/login").post(async (req, res) => {
