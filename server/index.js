@@ -20,7 +20,7 @@ app.use('/api/alexa', require('./routes/alexa'))
 
 // catch-all
 app.get("/*", (req, res) => {
-  res.sendFile(`${projectRoot}/client/login/index.html`);
+  res.sendFile(`${projectRoot}/client/index.html`);
 });
 
 app.listen(port, () => {

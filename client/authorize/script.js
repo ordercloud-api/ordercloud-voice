@@ -4,16 +4,25 @@ const username = document.getElementById("username");
 // const email = document.getElementById("keyword");
 const password = document.getElementById("password");
 
+const urlSearchParams = new URLSearchParams(window.location.search);
+
+const clientID = urlSearchParams.get('client_id');
+const requestUri = urlSearchParams.get('redirect_uri');
+
+if (!clientID || !requestUri) {
+  window.alert('This login screen is not configured correctly!');
+}
+
 function showError(input, message) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control error";
-  const small = formControl.querySelector("small");
+  input.className = "form-control is-invalid";
+  const small = input.parentElement.querySelector("small");
   small.innerText = message;
 }
 
 function showSuccess(input) {
-  const formControl = input.parentElement;
-  formControl.className = "form-control success";
+  input.className= "form-control is-valid";
+  const small = input.parentElement.querySelector("small");
+  small.innerText = '';
 }
 
 function checkRequired(inputArray) {
@@ -33,13 +42,28 @@ function getFieldName(input) {
   return input.id.charAt(0).toUpperCase() + input.id.slice(1);
 }
 
-function submitRequest(username, password) {}
+function submitRequest(username, password) {
+  const data = {
+    username,
+    password,
+    clientID,
+    requestUri,
+  };
+
+  console.log(JSON.stringify(data, null, 2));
+  
+  $.ajax({
+    type: "POST",
+    url: `${window.location.protocol}//${window.location.host}/api/ordercloud/login`,    
+    dataType: 'json',
+    data,
+  })
+  .catch(console.log)
+}
 
 form.addEventListener("submit", function (event) {
   event.preventDefault();
-
   if (!checkRequired([username, password])) {
-    // checkKeyword(keyword);
-    submitRequest(username, password);
+    submitRequest(username.value, password.value);
   }
 });
