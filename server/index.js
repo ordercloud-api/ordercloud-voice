@@ -3,7 +3,8 @@ const app = express();
 const port = process.env.PORT || 4451;
 const path = require("path");
 const projectRoot = path.join(__dirname, "../");
-app.use(express.urlencoded()); // parse form post bodies
+app.use(express.urlencoded()); // Used to parse form post bodies
+app.use(express.json()); // Used to parse JSON bodies
 
 // client
 app.use(express.static("client"));
@@ -15,8 +16,8 @@ app.use(express.static("client"));
 // });
 
 // server
-app.use('/api/ordercloud', require('./routes/ordercloud'))
-app.use('/api/alexa', require('./routes/alexa'))
+app.use("/api/ordercloud", require("./routes/ordercloud"));
+app.use("/api/alexa", require("./routes/alexa"));
 
 // catch-all
 app.get("/*", (req, res) => {
