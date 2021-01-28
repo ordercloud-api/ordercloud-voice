@@ -78,7 +78,7 @@ function getOrderTotal(orders: Order[], timeframe: any) {
     if (order !== null && order !== undefined) {
       dateCreated = new Date(order.DateCreated || new Date())
       if (new Date(dateCreated).getTime() >= acceptableDateRange) {
-        subtotal = +subtotal + +(order?.Subtotal || 0)
+        subtotal = +subtotal + +(order.Subtotal || 0)
       }
     }
   })
