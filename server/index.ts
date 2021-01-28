@@ -5,6 +5,7 @@ import path from 'path'
 const projectRoot = path.join(__dirname, '../')
 import ordercloudRoutes from './routes/ordercloud'
 import alexaRoutes from './routes/alexa'
+
 // app.use(express.urlencoded()); // Used to parse form post bodies
 // app.use(express.json()); // Used to parse JSON bodies
 
@@ -18,8 +19,9 @@ app.use(express.static('client'))
 // });
 
 // server
-app.use('/api/ordercloud', ordercloudRoutes)
 app.use('/api/alexa', alexaRoutes)
+app.use(express.urlencoded()) // Used to parse form post bodies don't use before alexa routes
+app.use('/api/ordercloud', ordercloudRoutes)
 
 // catch-all
 app.get('/*', (req, res) => {
