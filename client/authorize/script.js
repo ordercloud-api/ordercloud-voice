@@ -1,7 +1,5 @@
 const form = document.getElementById("form");
 const username = document.getElementById("username");
-// TODO: maybe bring this back if we have time
-// const email = document.getElementById("keyword");
 const password = document.getElementById("password");
 
 const urlSearchParams = new URLSearchParams(window.location.search);
