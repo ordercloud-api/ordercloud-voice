@@ -8,6 +8,6 @@ router.route("/authorize").get((req, res) => {
   res.sendFile(`${projectRoot}/client/authorize/index.html`);
 });
 
-router.route('skill').post(skill)
+router.route('/skill').post(skill)
 
 module.exports = router;
