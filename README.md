@@ -1,4 +1,4 @@
-# OrderCloud Voice 🎤 
+# 🎤 OrderCloud Voice
 OrderCloud voice enables solution developers to quickly integrate their storefront via OrderCloud with the voice assistant for Amazon (Alexa). Specifically, users will be able to ask Alexa how their store is doing and get some quick diagnostics on what the order total was in a given time period.
 
 [Check it out in action!](https://ordercloud-voice.herokuapp.com/assets/demo_1_1.mp4)
