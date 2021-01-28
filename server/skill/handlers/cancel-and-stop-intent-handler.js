@@ -1,3 +1,5 @@
+const Alexa = require('ask-sdk-core')
+
 module.exports = {
   canHandle(handlerInput) {
     return (

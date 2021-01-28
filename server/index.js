@@ -3,8 +3,8 @@ const app = express();
 const port = process.env.PORT || 4451;
 const path = require("path");
 const projectRoot = path.join(__dirname, "../");
-app.use(express.urlencoded()); // Used to parse form post bodies
-app.use(express.json()); // Used to parse JSON bodies
+// app.use(express.urlencoded()); // Used to parse form post bodies
+// app.use(express.json()); // Used to parse JSON bodies
 
 // client
 app.use(express.static("client"));
@@ -23,6 +23,11 @@ app.use("/api/alexa", require("./routes/alexa"));
 app.get("/*", (req, res) => {
   res.sendFile(`${projectRoot}/client/index.html`);
 });
+
+app.use(function (err, req, res, next) {
+  console.log('custom error handler')
+  console.log(err)
+})
 
 app.listen(port, () => {
   console.log(`Listening at http://localhost:${port}`);
