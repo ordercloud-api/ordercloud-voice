@@ -3,7 +3,7 @@ const app = express();
 const port = process.env.PORT || 4451;
 const path = require("path");
 const projectRoot = path.join(__dirname, "../");
-app.use(express.json()); // Used to parse JSON bodies
+app.use(express.urlencoded()); // parse form post bodies
 
 // client
 app.use(express.static("client"));

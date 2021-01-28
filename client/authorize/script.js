@@ -7,12 +7,12 @@ const password = document.getElementById("password");
 const urlSearchParams = new URLSearchParams(window.location.search);
 
 const clientID = urlSearchParams.get('client_id');
-const requestUri = urlSearchParams.get('redirect_uri');
+const redirectUri = urlSearchParams.get('redirect_uri');
 const state = urlSearchParams.get('state');
 const scope = urlSearchParams.get('scope');
 const responseType = urlSearchParams.get('redirect_uri');
 
-if (!clientID || !requestUri) {
+if (!clientID || !redirectUri) {
   window.alert('This login screen is not configured correctly!');
 }
 
@@ -53,16 +53,17 @@ function submitRequest(username, password) {
     clientID,
     responseType,
     scope,
-    requestUri,
+    redirectUri,
   };
-
-  console.log(JSON.stringify(data, null, 2));
   
   $.ajax({
     type: "POST",
     url: `${window.location.protocol}//${window.location.host}/api/ordercloud/login`,    
     dataType: 'json',
     data,
+  })
+  .then(response => {
+    window.location.replace(response.redirectUrl);
   })
   .catch(console.log)
 }
