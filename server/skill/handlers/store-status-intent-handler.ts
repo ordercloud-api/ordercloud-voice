@@ -42,7 +42,7 @@ export default {
     const timeframe =
       handlerInput.requestEnvelope.request.intent.slots.timeframe.value
     const days = Math.ceil(timeframe / (1000 * 3600 * 24))
-    let totalMade = 0
+    let totalMade;
     if (days > 365) {
       return handlerInput.responseBuilder
         .speak("I'm only able to find under a year's worth of orders, sorry!")
@@ -68,17 +68,21 @@ export default {
 }
 
 function getOrderTotal(orders: Order[], timeframe: any) {
-  let subtotal = 0
-  const acceptableDateRange: number = new Date(timeframe).getTime()
-  let dateCreated: Date
+  let total = 0
+  // const acceptableDateRange: number = new Date(timeframe).getTime()
+  // let dateCreated: Date
 
-  orders.forEach(function (order: Order) {
-    if (order !== null && order !== undefined) {
-      dateCreated = new Date(order.DateCreated || new Date())
-      if (new Date(dateCreated).getTime() >= acceptableDateRange) {
-        subtotal = +subtotal + +(order.Subtotal || 0)
-      }
-    }
-  })
-  return +subtotal.toFixed(2)
+  orders.forEach((o:any) => {
+    total += o.Total;
+  });
+  return total.toFixed(2);
+  // orders.forEach(function (order: Order) {
+  //   if (order !== null && order !== undefined) {
+  //     dateCreated = new Date(order.DateCreated || new Date())
+  //     if (new Date(dateCreated).getTime() >= acceptableDateRange) {
+  //       subtotal = +subtotal + +(order.Subtotal || 0)
+  //     }
+  //   }
+  // })
+  // return +subtotal.toFixed(2)
 }
