@@ -52,7 +52,9 @@ export default {
     const orders = await listAll(
       Orders.List,
       'Incoming',
-      null,
+      {
+        from: timeframe
+      },
       { accessToken }
     )
 
