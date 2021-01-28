@@ -1,7 +1,7 @@
 import { ExpressAdapter } from 'ask-sdk-express-adapter'
 import { SkillBuilders } from 'ask-sdk-core'
 import LaunchRequestHandler from './handlers/launch-request-handler'
-import HelloWorldIntentHandler from './handlers/hello-world-intent-handler'
+import StoreStatusIntentHandler from './handlers/store-status-intent-handler'
 import HelpIntentHandler from './handlers/help-intent-handler'
 import CancelAndStopIntentHandler from './handlers/cancel-and-stop-intent-handler'
 import FallbackIntentHandler from './handlers/fallback-intent-handler'
@@ -15,7 +15,7 @@ import ErrorHandler from './handlers/error-handler'
  */
 const handlers = [
   LaunchRequestHandler,
-  HelloWorldIntentHandler,
+  StoreStatusIntentHandler,
   HelpIntentHandler,
   CancelAndStopIntentHandler,
   FallbackIntentHandler,
