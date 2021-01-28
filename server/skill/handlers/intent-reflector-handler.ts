@@ -1,4 +1,4 @@
-import Alexa, { HandlerInput } from 'ask-sdk-core';
+import { getRequestType, getIntentName, HandlerInput } from 'ask-sdk-core';
 
 /* *
  * The intent reflector is used for interaction model testing and debugging.
@@ -8,11 +8,11 @@ import Alexa, { HandlerInput } from 'ask-sdk-core';
 export default {
   canHandle(handlerInput: HandlerInput) {
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest"
+      getRequestType(handlerInput.requestEnvelope) === "IntentRequest"
     );
   },
   handle(handlerInput: HandlerInput) {
-    const intentName = Alexa.getIntentName(handlerInput.requestEnvelope);
+    const intentName = getIntentName(handlerInput.requestEnvelope);
     const speakOutput = `You just triggered ${intentName}`;
 
     return (

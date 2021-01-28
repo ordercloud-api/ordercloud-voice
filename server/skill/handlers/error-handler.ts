@@ -11,6 +11,7 @@ export default  {
   handle(handlerInput: HandlerInput, error: any) {
     const speakOutput =
       "Sorry, I had trouble doing what you asked. Please try again.";
+    console.log(error)
     console.log(`~~~~ Error handled: ${JSON.stringify(error)}`);
 
     return handlerInput.responseBuilder

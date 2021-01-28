@@ -1,5 +1,5 @@
 const { ExpressAdapter } = require("ask-sdk-express-adapter");
-const Alexa = require('ask-sdk-core')
+import { SkillBuilders } from 'ask-sdk-core';
 import LaunchRequestHandler from './handlers/launch-request-handler';
 import HelloWorldIntentHandler from './handlers/hello-world-intent-handler';
 import HelpIntentHandler from './handlers/help-intent-handler'
@@ -22,7 +22,7 @@ const handlers = [
   SessionEndedRequestHandler,
   IntentReflectorHandler,
 ];
-const skill = Alexa.SkillBuilders.custom()
+const skill = SkillBuilders.custom()
   .addRequestHandlers(...handlers)
   .addErrorHandlers(ErrorHandler)
   .create();

@@ -1,13 +1,13 @@
-import Alexa, { HandlerInput } from 'ask-sdk-core';
+import { getRequestType, HandlerInput, getIntentName } from 'ask-sdk-core';
 
 export default {
   canHandle(handlerInput: HandlerInput) {
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      (Alexa.getIntentName(handlerInput.requestEnvelope) ===
+      getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
+      (getIntentName(handlerInput.requestEnvelope) ===
         "AMAZON.CancelIntent" ||
-        Alexa.getIntentName(handlerInput.requestEnvelope) ===
-          "AMAZON.StopIntent")
+        getIntentName(handlerInput.requestEnvelope) ===
+        "AMAZON.StopIntent")
     );
   },
   handle(handlerInput: HandlerInput) {

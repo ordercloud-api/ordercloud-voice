@@ -1,9 +1,9 @@
-import Alexa, { HandlerInput } from 'ask-sdk-core';
+import { getRequestType, HandlerInput } from 'ask-sdk-core';
 
 export default {
   canHandle(handlerInput: HandlerInput) {
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === "LaunchRequest"
+      getRequestType(handlerInput.requestEnvelope) === "LaunchRequest"
     );
   },
   handle(handlerInput: HandlerInput) {

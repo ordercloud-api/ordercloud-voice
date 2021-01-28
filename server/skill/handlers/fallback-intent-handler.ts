@@ -1,4 +1,4 @@
-import Alexa, { HandlerInput } from 'ask-sdk-core';
+import { getRequestType, getIntentName, HandlerInput } from 'ask-sdk-core';
 
 /* *
  * FallbackIntent triggers when a customer says something that doesn’t map to any intents in your skill
@@ -8,8 +8,8 @@ import Alexa, { HandlerInput } from 'ask-sdk-core';
 export default {
   canHandle(handlerInput: HandlerInput) {
     return (
-      Alexa.getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
-      Alexa.getIntentName(handlerInput.requestEnvelope) ===
+      getRequestType(handlerInput.requestEnvelope) === "IntentRequest" &&
+      getIntentName(handlerInput.requestEnvelope) ===
         "AMAZON.FallbackIntent"
     );
   },
