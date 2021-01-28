@@ -1,5 +1,5 @@
 const { ExpressAdapter } = require("ask-sdk-express-adapter");
-const Alexa = require("ask-sdk");
+const Alexa = require('ask-sdk-core')
 
 /**
  * Register handlers
@@ -14,12 +14,9 @@ const handlers = [
   require("./handlers/session-ended-request-handler"),
   require("./handlers/intent-reflector-handler"),
 ];
-const errorHandler = require("./handlers/error-handler");
-console.log(errorHandler)
-
 const skill = Alexa.SkillBuilders.custom()
   .addRequestHandlers(...handlers)
-  .addErrorHandlers(errorHandler)
+  .addErrorHandlers(require("./handlers/error-handler"))
   .create();
 
 const adapter = new ExpressAdapter(skill, false, false);
