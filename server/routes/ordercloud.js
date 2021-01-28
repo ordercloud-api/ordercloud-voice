@@ -10,7 +10,7 @@ router.route("/login").post(async (req, res) => {
     scope
   );
   res.status(200).json({
-    redirectUrl: `${redirectUri}?token=${authResponse.access_token}&token_type=bearer&state=${state}`,
+    redirectUrl: `${redirectUri}?access_token=${authResponse.access_token}&token_type=bearer&state=${state}`,
   });
 });
 
